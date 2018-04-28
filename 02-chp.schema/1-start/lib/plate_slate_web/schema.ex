@@ -14,6 +14,8 @@ defmodule PlateSlateWeb.Schema do
   end
   
  object :menu_item do
-    # <<We'll add fields soon>>
+    field :id, :id
+    field :name, :string
+    field :description, :string
   end
 end
