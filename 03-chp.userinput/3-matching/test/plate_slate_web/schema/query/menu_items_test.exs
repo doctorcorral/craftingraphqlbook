@@ -64,6 +64,24 @@ defmodule PlateSlateWeb.Schema.Query.MenuItemsTest do
     }
   end
 
+    @query """
+  {
+    menuItems(matching: "fri") {
+      name
+    }
+  }
+  """
+  test "menuItems returns french fries with fri" do
+    response = get(build_conn(), "/api", query: @query)
+    assert json_response(response, 200) == %{
+      "data" => %{
+        "menuItems" => [
+          %{"name" => "French Fries"},
+        ]
+      }
+    }
+  end
+
   @query """
   {
     menuItems(matching: 123) {
